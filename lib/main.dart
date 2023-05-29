@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:playground_design/view/auth/login.auth.view.dart';
+import 'package:playground_design/controller.bindings.dart';
+import 'package:playground_design/view/auth/register.auth.view.dart';
 
 void main() {
   runApp(
     GetMaterialApp(
-      home: LoginAuthView(),
+      home: RegisterAuthView(),
+      initialBinding: ControllerBindings(),
     ),
   );
 }
