@@ -29,15 +29,14 @@ class AuthController extends GetxController {
   bool hasNumericAndMoreThan6() {
     final input = confirmPasswordField.text;
     final hasNumeric = RegExp(r'[0-9]').hasMatch(input);
-    final hasLengthGreaterThan6 = input.length > 6;
 
-    return hasNumeric && hasLengthGreaterThan6;
+    return hasNumeric && hasLength();
   }
 
   ///only check length
   bool hasLength() {
     final input = confirmPasswordField.text;
-    return input.length >= 6;
+    return input.length > 6;
   }
 
   ///check if only has upper lower case and more than 6
@@ -45,33 +44,22 @@ class AuthController extends GetxController {
     final input = confirmPasswordField.text;
     final hasUppercase = RegExp(r'[A-Z]').hasMatch(input);
     final hasLowercase = RegExp(r'[a-z]').hasMatch(input);
-    final hasLengthGreaterThan6 = input.length > 6;
 
-    return hasUppercase && hasLowercase && hasLengthGreaterThan6;
+    return hasUppercase && hasLowercase && hasLength();
   }
 
   ///satisfied conditions is all required is done
   bool _satisfiesConditions() {
-    final input = confirmPasswordField.text;
-    final hasUppercase = RegExp(r'[A-Z]').hasMatch(input);
-    final hasLowercase = RegExp(r'[a-z]').hasMatch(input);
-    final hasNumeric = RegExp(r'[0-9]').hasMatch(input);
-    final hasLengthGreaterThan6 = input.length > 6;
-
-    return hasUppercase && hasLowercase && hasNumeric && hasLengthGreaterThan6;
+    return hasUppercaseLowercaseAndMoreThan6() && hasNumericAndMoreThan6();
   }
 
   void onCheckPasswordCombination() {
-    print(emailField.text);
-    print(newPasswordField.text);
-    print(confirmPasswordField.text);
-
     ///check if not empty
     if (emailField.text.isNotEmpty &&
         newPasswordField.text.isNotEmpty &&
         confirmPasswordField.text.isNotEmpty) {
+      ///check if new password and confirm password is match
       if(newPasswordField.text==confirmPasswordField.text){
-
         if (_satisfiesConditions()) {
           print('100%');
           progressValue.value = 1.0;
