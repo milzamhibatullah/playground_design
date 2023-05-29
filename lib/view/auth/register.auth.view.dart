@@ -175,7 +175,9 @@ class RegisterAuthView extends GetView<AuthController> {
   ///register button
   Widget _registerBtn() {
     return GestureDetector(
-      onTap: controller.progressValue.value < 1 ? null : () {},
+      onTap: controller.progressValue.value < 1 ? null : () {
+        Get.rawSnackbar(message: 'Next To Register');
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 28.0),
         height: 46.0,
