@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../themes/app.theme.color.dart';
 
-///this progress bar is custom not use linear progress indicator
+///this progress bar is custom widget
 ///we need value and color
-///
 class CustomProgressBar extends StatelessWidget {
   final double value;
   final Color valueColor;
