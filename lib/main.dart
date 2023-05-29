@@ -6,7 +6,8 @@ import 'package:playground_design/view/auth/register.auth.view.dart';
 void main() {
   runApp(
     GetMaterialApp(
-      home: RegisterAuthView(),
+      debugShowCheckedModeBanner: false,
+      home: const RegisterAuthView(),
       initialBinding: ControllerBindings(),
     ),
   );

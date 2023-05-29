@@ -80,7 +80,7 @@ class RegisterAuthView extends GetView<AuthController> {
                       children: [
                         /// '\u2022 means bullet list'
                         appText.regular(
-                          text: '\u2022 Use minimum 6 characters',
+                          text: '\u2022 Use 6 to 10 characters Use',
                           color: controller.hasLength()
                               ? AppThemeColor.textPrimaryColor
                               : AppThemeColor.textSecondaryColor
